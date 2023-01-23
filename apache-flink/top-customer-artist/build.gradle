@@ -1,0 +1,44 @@
+plugins {
+    id 'java'
+    id 'groovy'
+    id 'idea'
+    id "com.github.johnrengelman.shadow" version "7.0.0"
+}
+
+group 'org.improving.workshop.flink'
+sourceCompatibility = JavaVersion.VERSION_11
+targetCompatibility = JavaVersion.VERSION_11
+
+repositories {
+    mavenCentral()
+    maven { url "https://packages.confluent.io/maven"}
+}
+
+dependencies {
+    implementation group: 'org.apache.flink', name: 'flink-connector-kafka', version: '1.16.0'
+    implementation group: 'org.apache.flink', name: 'flink-streaming-java', version: '1.16.0'
+    implementation group: 'org.apache.flink', name: 'flink-clients', version: '1.16.0'
+    implementation group: 'org.apache.flink', name: 'flink-json', version: '1.16.0'
+    
+    implementation 'org.apache.kafka:kafka-clients:7.3.0-ce'
+    implementation 'org.apache.kafka:kafka-streams:7.3.0-ce'
+    
+
+    implementation group: 'org.slf4j', name: 'slf4j-api', version: '2.0.5'
+    implementation group: 'org.slf4j', name: 'slf4j-api', version: '2.0.5'
+
+    // included for the Serdes
+    implementation 'com.fasterxml.jackson.core:jackson-databind:2.14.1'
+
+    compileOnly 'org.projectlombok:lombok:1.18.24'
+    annotationProcessor 'org.projectlombok:lombok:1.18.24'
+
+    testCompileOnly 'org.projectlombok:lombok:1.18.24'
+    testAnnotationProcessor 'org.projectlombok:lombok:1.18.24'
+    testImplementation 'org.spockframework:spock-core:2.3-groovy-3.0'
+    testImplementation 'org.codehaus.groovy:groovy-all:3.0.14'
+}
+
+test {
+    useJUnitPlatform()
+}
