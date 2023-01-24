@@ -1,6 +1,6 @@
-package org.improving.workshop.stream
+package org.improving.workshop.samples
 
-import net.datafaker.Faker
+
 import org.apache.kafka.common.serialization.Serdes
 import org.apache.kafka.streams.StreamsBuilder
 import org.apache.kafka.streams.TestInputTopic
@@ -8,13 +8,17 @@ import org.apache.kafka.streams.TestOutputTopic
 import org.apache.kafka.streams.TopologyTestDriver
 import org.improving.workshop.Streams
 import org.msse.demo.mockdata.music.stream.Stream
-import org.msse.demo.mockdata.music.stream.StreamFaker
 import spock.lang.Specification
+
+import static org.improving.workshop.utils.DataFaker.STREAMS
 
 class CustomerStreamCountSpec extends Specification {
     TopologyTestDriver driver
-    StreamFaker streamFaker
+
+    // inputs
     TestInputTopic<String, Stream> inputTopic
+
+    // outputs
     TestOutputTopic<String, Long> outputTopic
 
     def 'setup'() {
@@ -28,9 +32,9 @@ class CustomerStreamCountSpec extends Specification {
         driver = new TopologyTestDriver(streamsBuilder.build(), Streams.buildProperties());
 
         inputTopic = driver.createInputTopic(
-                CustomerStreamCount.INPUT_TOPIC,
+                Streams.TOPIC_DATA_DEMO_STREAMS,
                 Serdes.String().serializer(),
-                Streams.CUSTOMER_STREAM_JSON_SERDE.serializer()
+                Streams.SERDE_STREAM_JSON.serializer()
         )
 
         outputTopic = driver.createOutputTopic(
@@ -39,7 +43,6 @@ class CustomerStreamCountSpec extends Specification {
                 Serdes.Long().deserializer()
         )
 
-        streamFaker = new StreamFaker(new Faker())
     }
 
     def 'cleanup'() {
@@ -48,10 +51,10 @@ class CustomerStreamCountSpec extends Specification {
 
     def "customer stream counter"() {
         given: 'multiple customer streams received by the topology'
-        inputTopic.pipeInput(UUID.randomUUID().toString(), streamFaker.generate("1", "2"))
-        inputTopic.pipeInput(UUID.randomUUID().toString(), streamFaker.generate("1", "3"))
-        inputTopic.pipeInput(UUID.randomUUID().toString(), streamFaker.generate("1", "4"))
-        inputTopic.pipeInput(UUID.randomUUID().toString(), streamFaker.generate("2", "3"))
+        inputTopic.pipeInput(UUID.randomUUID().toString(), STREAMS.generate("1", "2"))
+        inputTopic.pipeInput(UUID.randomUUID().toString(), STREAMS.generate("1", "3"))
+        inputTopic.pipeInput(UUID.randomUUID().toString(), STREAMS.generate("1", "4"))
+        inputTopic.pipeInput(UUID.randomUUID().toString(), STREAMS.generate("2", "3"))
 
         when: 'reading the output records'
         def outputRecords = outputTopic.readRecordsToList()
