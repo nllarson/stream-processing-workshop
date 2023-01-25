@@ -227,6 +227,6 @@ Find the Top 3 Streamed Artists for each Customer.
 
 Accept Ticket requests and respond with CONFIRMED if the Event has remaining tickets or REJECTED if the Event has sold out.
 
-* Solution: [CustomerStreamCount](kafka/src/main/java/org/improving/workshop/samples/PurchaseEventTicket.java)
-* Test: [CustomerStreamCountSpec](kafka/src/test/groovy/org/improving/workshop/samples/PurchaseEventTicketSpec.groovy)
+* Solution: [PurchaseEventTicket](kafka/src/main/java/org/improving/workshop/samples/PurchaseEventTicket.java)
+* Test: [PurchaseEventTicketSpec](kafka/src/test/groovy/org/improving/workshop/samples/PurchaseEventTicketSpec.groovy)
 * Topology: [Purchase Event Ticket Topology](assets/samples/purchase-event-ticket.png)
