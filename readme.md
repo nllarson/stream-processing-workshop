@@ -51,7 +51,7 @@ Once Forked & Cloned, you can pick which runtime mode you prefer.
 
 The TopologyTestDriver can simulate the entire streams process and you can accomplish what you need via good tests.
 
-<img src="kafka-streams/assets/tdd-env.png" alt="erd" width="700"/>
+<img src="assets/tdd-env.png" alt="erd" width="700"/>
 
 See existing tests like [CustomerStreamCountSpec](kafka/src/test/groovy/org/improving/workshop/samples/CustomerStreamCountSpec.groovy), [PurchaseEventTicketSpec](kafka/src/test/groovy/org/improving/workshop/samples/PurchaseEventTicketSpec.groovy), [TopCustomerArtistsSpec](kafka/src/test/groovy/org/improving/workshop/samples/TopCustomerArtistsSpec.groovy) for inspiration.
 
@@ -86,7 +86,7 @@ When running locally, your settings in `Streams.buildProperties()` should look l
 
 If you are doing this workshop in a shared Confluent Cloud environment. You will need the bootstrap server, username, and password values. With these, you can modify your `Streams.buildProperties()` so that it looks like below.
 
-<img src="kafka/assets/ccloud-env.png" alt="erd" width="700"/>
+<img src="assets/ccloud-env.png" alt="erd" width="700"/>
 
 ```
 // Streams.java
