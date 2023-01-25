@@ -25,7 +25,7 @@ You are going to explore the data, learn about Kafka Streams, and build Streams 
 
 The below ERD illustrates the data available in the workshop. Brief descriptions of each entity are below the diagram.
 
-<img src="kafka-streams/assets/utopia-erd.png" alt="erd" width="750"/>
+<img src="assets/utopia-erd.png" alt="erd" width="750"/>
 
 * Customer - the Utopia customer stores the core profile information and is related to the customer’s Email(s), Phone(s) and Address(es). The customer can also Stream artists and purchase Ticket(s) to Event(s).
 * Email - the email data has a unique identifier, a foreign key linking it to a customer, and the email address.
@@ -53,13 +53,13 @@ The TopologyTestDriver can simulate the entire streams process and you can accom
 
 <img src="kafka-streams/assets/tdd-env.png" alt="erd" width="700"/>
 
-See existing tests like [CustomerStreamCountSpec](kafka-streams/src/test/groovy/org/improving/workshop/samples/CustomerStreamCountSpec.groovy), [PurchaseEventTicketSpec](kafka-streams/src/test/groovy/org/improving/workshop/samples/PurchaseEventTicketSpec.groovy), [TopCustomerArtistsSpec](kafka-streams/src/test/groovy/org/improving/workshop/samples/TopCustomerArtistsSpec.groovy) for inspiration.
+See existing tests like [CustomerStreamCountSpec](kafka/src/test/groovy/org/improving/workshop/samples/CustomerStreamCountSpec.groovy), [PurchaseEventTicketSpec](kafka/src/test/groovy/org/improving/workshop/samples/PurchaseEventTicketSpec.groovy), [TopCustomerArtistsSpec](kafka/src/test/groovy/org/improving/workshop/samples/TopCustomerArtistsSpec.groovy) for inspiration.
 
 ### Local Environment
 
 If you want to run this project against a local Kafka cluster with mock data then head over to [data-demo](https://github.com/schroedermatt/data-demo) and walk through the readme to get started. It has everything you need to start a local environment and start producing the mock data for this workshop to your environment. 
 
-<img src="kafka-streams/assets/local-env.png" alt="erd" width="700"/>
+<img src="assets/local-env.png" alt="erd" width="700"/>
 
 When running locally, your settings in `Streams.buildProperties()` should look like below.
 
@@ -86,7 +86,7 @@ When running locally, your settings in `Streams.buildProperties()` should look l
 
 If you are doing this workshop in a shared Confluent Cloud environment. You will need the bootstrap server, username, and password values. With these, you can modify your `Streams.buildProperties()` so that it looks like below.
 
-<img src="kafka-streams/assets/ccloud-env.png" alt="erd" width="700"/>
+<img src="kafka/assets/ccloud-env.png" alt="erd" width="700"/>
 
 ```
 // Streams.java
@@ -141,8 +141,8 @@ So rather than `kafka-workshop-top-streams`, maybe use `kafka-workshop-top-strea
 
 Utopia has big dreams and they need your help. For each of the scenarios below,
 
-1) Draw the topology -- you can import [workshop-template.excalidraw](kafka-streams/assets/excalidraw/workshop-template.excalidraw) into [Excalidraw](https://excalidraw.com) for a jump start. The template has a reusable icon set and sample topologies.
-2) Implement the topology -- see the [Samples](#samples) for inspiration and leverage the [StreamTemplate](kafka-streams/src/main/java/org/improving/workshop/StreamTemplate.java) as a starting point.
+1) Draw the topology -- you can import [workshop-template.excalidraw](assets/excalidraw/workshop-template.excalidraw) into [Excalidraw](https://excalidraw.com) for a jump start. The template has a reusable icon set and sample topologies.
+2) Implement the topology -- see the [Samples](#samples) for inspiration and leverage the [StreamTemplate](kafka/src/main/java/org/improving/workshop/StreamTemplate.java) as a starting point.
 3) Test the topology with the TopologyTestDriver -- see the tests tied to the [Samples](#samples) for inspiration.
 
 ### MOST STREAMED ARTISTS
@@ -211,22 +211,22 @@ Goals:
 
 Find the total Stream count for each Customer.
 
-* Solution: [CustomerStreamCount](kafka-streams/src/main/java/org/improving/workshop/samples/CustomerStreamCount.java)
-* Test: [CustomerStreamCountSpec](kafka-streams/src/test/groovy/org/improving/workshop/samples/CustomerStreamCountSpec.groovy)
-* Topology: [Customer Stream Count Topology](kafka-streams/assets/samples/total-customer-stream-count.png)
+* Solution: [CustomerStreamCount](kafka/src/main/java/org/improving/workshop/samples/CustomerStreamCount.java)
+* Test: [CustomerStreamCountSpec](kafka/src/test/groovy/org/improving/workshop/samples/CustomerStreamCountSpec.groovy)
+* Topology: [Customer Stream Count Topology](assets/samples/total-customer-stream-count.png)
 
 ### TopCustomerArtists
 
 Find the Top 3 Streamed Artists for each Customer.
 
-* Solution: [TopCustomerArtists](kafka-streams/src/main/java/org/improving/workshop/samples/TopCustomerArtists.java)
-* Test: [TopCustomerArtistsSpec](kafka-streams/src/test/groovy/org/improving/workshop/samples/TopCustomerArtistsSpec.groovy)
-* Topology: [Top 3 Customer Artists Topology](kafka-streams/assets/samples/top-3-artists.png)
+* Solution: [TopCustomerArtists](kafka/src/main/java/org/improving/workshop/samples/TopCustomerArtists.java)
+* Test: [TopCustomerArtistsSpec](kafka/src/test/groovy/org/improving/workshop/samples/TopCustomerArtistsSpec.groovy)
+* Topology: [Top 3 Customer Artists Topology](assets/samples/top-3-artists.png)
 
 ### PurchaseEventTicket
 
 Accept Ticket requests and respond with CONFIRMED if the Event has remaining tickets or REJECTED if the Event has sold out.
 
-* Solution: [CustomerStreamCount](kafka-streams/src/main/java/org/improving/workshop/samples/PurchaseEventTicket.java)
-* Test: [CustomerStreamCountSpec](kafka-streams/src/test/groovy/org/improving/workshop/samples/PurchaseEventTicketSpec.groovy)
-* Topology: [Purchase Event Ticket Topology](kafka-streams/assets/samples/purchase-event-ticket.png)
+* Solution: [CustomerStreamCount](kafka/src/main/java/org/improving/workshop/samples/PurchaseEventTicket.java)
+* Test: [CustomerStreamCountSpec](kafka/src/test/groovy/org/improving/workshop/samples/PurchaseEventTicketSpec.groovy)
+* Topology: [Purchase Event Ticket Topology](assets/samples/purchase-event-ticket.png)
