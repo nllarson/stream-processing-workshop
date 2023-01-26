@@ -10,15 +10,11 @@ import org.apache.flink.connector.kafka.source.KafkaSource;
 import org.apache.flink.connector.kafka.source.enumerator.initializer.OffsetsInitializer;
 import org.apache.flink.connector.kafka.source.reader.deserializer.KafkaRecordDeserializationSchema;
 import org.apache.flink.formats.json.JsonSerializationSchema;
-import org.apache.flink.shaded.jackson2.com.fasterxml.jackson.databind.node.ObjectNode;
-import org.apache.flink.streaming.api.datastream.DataStream;
 import org.apache.flink.streaming.api.datastream.DataStreamSink;
 import org.apache.flink.streaming.api.environment.StreamExecutionEnvironment;
-import org.apache.flink.streaming.util.serialization.JSONKeyValueDeserializationSchema;
-import org.improving.workshop.flink.common.ItemCount;
-import org.improving.workshop.flink.sample1.CustomerStreamCounter;
-import org.improving.workshop.utopia.pojo.Stream;
-import org.improving.workshop.utopia.pojo.deserializer.StreamDeserializer;
+import org.improving.workshop.common.ItemCount;
+import org.improving.workshop.utopia.Stream;
+import org.improving.workshop.utopia.deserializer.StreamDeserializer;
 
 import java.util.List;
 import java.util.Properties;

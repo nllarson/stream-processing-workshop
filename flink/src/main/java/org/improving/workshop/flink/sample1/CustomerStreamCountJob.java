@@ -10,8 +10,8 @@ import org.apache.flink.connector.kafka.source.reader.deserializer.KafkaRecordDe
 import org.apache.flink.formats.json.JsonSerializationSchema;
 import org.apache.flink.streaming.api.datastream.DataStreamSink;
 import org.apache.flink.streaming.api.environment.StreamExecutionEnvironment;
-import org.improving.workshop.utopia.pojo.Stream;
-import org.improving.workshop.utopia.pojo.deserializer.StreamDeserializer;
+import org.improving.workshop.utopia.Stream;
+import org.improving.workshop.utopia.deserializer.StreamDeserializer;
 
 import java.util.Properties;
 import java.util.UUID;

@@ -1,4 +1,4 @@
-package org.improving.workshop.utopia.pojo;
+package org.improving.workshop.utopia;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

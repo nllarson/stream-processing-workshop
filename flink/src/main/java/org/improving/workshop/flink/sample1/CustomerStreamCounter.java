@@ -7,7 +7,7 @@ import org.apache.flink.api.common.typeinfo.Types;
 import org.apache.flink.configuration.Configuration;
 import org.apache.flink.streaming.api.functions.KeyedProcessFunction;
 import org.apache.flink.util.Collector;
-import org.improving.workshop.utopia.pojo.Stream;
+import org.improving.workshop.utopia.Stream;
 
 @Slf4j
 public class CustomerStreamCounter extends KeyedProcessFunction<String, Stream, Long> {

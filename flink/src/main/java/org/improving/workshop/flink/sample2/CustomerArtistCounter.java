@@ -2,16 +2,11 @@ package org.improving.workshop.flink.sample2;
 
 import org.apache.flink.api.common.state.ListState;
 import org.apache.flink.api.common.state.ListStateDescriptor;
-import org.apache.flink.api.common.state.ValueState;
-import org.apache.flink.api.common.state.ValueStateDescriptor;
-import org.apache.flink.api.common.typeinfo.Types;
-import org.apache.flink.api.java.tuple.Tuple2;
 import org.apache.flink.configuration.Configuration;
-import org.apache.flink.shaded.jackson2.com.fasterxml.jackson.databind.node.ObjectNode;
 import org.apache.flink.streaming.api.functions.KeyedProcessFunction;
 import org.apache.flink.util.Collector;
-import org.improving.workshop.flink.common.ItemCount;
-import org.improving.workshop.utopia.pojo.Stream;
+import org.improving.workshop.common.ItemCount;
+import org.improving.workshop.utopia.Stream;
 
 import java.util.ArrayList;
 import java.util.List;
