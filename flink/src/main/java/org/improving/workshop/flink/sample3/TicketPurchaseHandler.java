@@ -17,7 +17,11 @@ import java.util.UUID;
 @Slf4j
 public class TicketPurchaseHandler extends CoProcessFunction<Ticket, EventStatus, EventTicketConfirmation> {
     private transient ValueState<EventStatus> eventValueState;
-    private static final OutputTag<String> ticketStatusMessages = new OutputTag<String>("ticket-status") {};
+    private final OutputTag<String> ticketStatusMessages;
+
+    public TicketPurchaseHandler(OutputTag<String> ticketStatusMessages) {
+        this.ticketStatusMessages = ticketStatusMessages;
+    }
     @Override
     public void open(Configuration parameters) throws Exception {
         eventValueState = getRuntimeContext().getState(new ValueStateDescriptor<EventStatus>("eventValueState", EventStatus.class));

@@ -84,7 +84,7 @@ public class PurchaseEventTicketJob {
         SingleOutputStreamOperator<EventTicketConfirmation> eventTicketConfirmationStream = ticketStream
                 .keyBy(Ticket::getEventid)
                 .connect(eventStatusStream.keyBy(value -> value.getEvent().getId()))
-                .process(new TicketPurchaseHandler())
+                .process(new TicketPurchaseHandler(ticketStatusMessages))
                 .name("eventTicketConfirmationProcessFunction")
                 .uid("eventTicketConfirmationProcessFunction");
 
