@@ -13,13 +13,13 @@ import org.apache.flink.streaming.api.datastream.DataStreamSink;
 import org.apache.flink.streaming.api.datastream.SingleOutputStreamOperator;
 import org.apache.flink.streaming.api.environment.StreamExecutionEnvironment;
 import org.apache.flink.util.OutputTag;
-import org.apache.kafka.clients.consumer.OffsetResetStrategy;
-import org.improving.workshop.common.ItemCount;
-import org.improving.workshop.utopia.*;
+import org.improving.workshop.utopia.Event;
+import org.improving.workshop.utopia.EventStatus;
+import org.improving.workshop.utopia.EventTicketConfirmation;
+import org.improving.workshop.utopia.Ticket;
 import org.improving.workshop.utopia.deserializer.EventDeserializer;
 import org.improving.workshop.utopia.deserializer.TicketDeserializer;
 
-import java.util.List;
 import java.util.Properties;
 import java.util.UUID;
 
