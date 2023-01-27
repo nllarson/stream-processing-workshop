@@ -28,7 +28,8 @@ public class EventTicketConfirmation {
                 if (nearSellout()) {
                     return "Ticket Confirmed. Event " + getEventStatus().getEvent().getId() + " is almost sold out, only " + getRemainingTickets() + " ticket(s) remain.";
                 } else {
-                    return "Ticket Confirmed.  Enjoy the show!";
+                    return "Ticket Confirmed. " + getRemainingTickets() +" ticket(s) remain for " + getEventStatus().getEvent().getId();
+
                 }
             case REJECTED:
                 return "Ticket Rejected";
